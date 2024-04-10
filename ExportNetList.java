@@ -9,7 +9,7 @@ import java.util.UUID;
 
 class ExportNetLIst {
 
-    private static final String kicad_img_id = "621e02ac3101";
+    private static final String kicad_img_id = "a37c2763212f";
 
     private static final String kicad_img_home_path = "/home/kicad";
 
