@@ -9,7 +9,7 @@ import java.util.UUID;
 
 class ExportNetLIst {
 
-    private static final String kicad_img_id = "a37c2763212f";
+    private static final String kicad_img_id = "ghcr.io/liangtie/kicad:lite";
 
     private static final String kicad_img_home_path = "/home/kicad";
 
@@ -22,9 +22,9 @@ class ExportNetLIst {
         String mounted_prj_path = kicad_img_home_path + "/" + UUID.randomUUID().toString();
         String mouted_sch_root_path = mounted_prj_path + "/" + root_sch_name;
 
-        String[] firstCmd = { "docker", "run", "-v", kicad_project_dir + ":" + mounted_prj_path,
+        String[] firstCmd = { "docker", "run", "--rm", "-v", kicad_project_dir + ":" + mounted_prj_path,
                 kicad_img_id, "kicad-cli", "sch",
-                "export", "netlist", "--format", "allegro",
+                "export", "netlist", "--format", "kicadxml",
                 mouted_sch_root_path, "-o",
                 mounted_prj_path + "/" + output_file_name
         };

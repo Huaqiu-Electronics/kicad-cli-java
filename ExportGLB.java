@@ -1,5 +1,3 @@
-import java.io.File;
-import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -11,7 +9,7 @@ import java.util.concurrent.TimeUnit;
 
 class ExportGLB {
 
-    private static final String kicad_img_id = "a37c2763212f";
+    private static final String kicad_img_id = "ghcr.io/liangtie/kicad";
 
     private static final String kicad_img_home_path = "/home/kicad";
 
@@ -25,7 +23,7 @@ class ExportGLB {
         String output_file_name = UUID.randomUUID().toString() + ".glb";
         String docker_output_fn = mounted_prj_path + "/" + output_file_name;
 
-        String[] firstCmd = { "docker", "run",
+        String[] firstCmd = { "docker", "run", "--rm",
                 "-v", kicad_project_dir + ":" + mounted_prj_path,
                 kicad_img_id, "kicad-cli", "pcb",
                 "export", "glb", "--subst-models", "--include-tracks",
