@@ -13,7 +13,7 @@ class ExportNetLIst {
 
     private static final String kicad_img_home_path = "/home/kicad";
 
-    public static String export_allegro(String root_sch_file_name) {
+    public static String export_kicad_xml(String root_sch_file_name) {
 
         Process process = null;
         String kicad_project_dir = new File(root_sch_file_name).getParent();
@@ -52,9 +52,10 @@ class ExportNetLIst {
     }
 
     public static void main(String[] args) {
-        String unziped_prj_path = "/home/hq/kicad/psprice"; // NOETE 项目文件夹需要有写入权限
-        String root_sch_fn = "pspice.kicad_sch";
-        String net_list = export_allegro(unziped_prj_path + "/" + root_sch_fn);
+        String unziped_prj_path = "D:/code/kicad-cli-java"; // NOETE 项目文件夹需要有写入权限
+        String root_sch_fn = "esvideo.kicad_sch";
+        // D:\code\kicad-cli-java\esvideo.kicad_sch
+        String net_list = export_kicad_xml(unziped_prj_path + "/" + root_sch_fn);
         System.out.print(net_list);
 
     }
